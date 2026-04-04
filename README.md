@@ -104,7 +104,7 @@ Managers receive immediate alerts:
 - Or alternatively:
   - **Node.js 22+** (Client)
   - **Python 3.13+** (Server)
-  - **MongoDB** (Database)
+  - **Neon DB** (PostgreSQL Database)
 
 ### Option 1: Docker (Recommended) 🐳
 
@@ -119,7 +119,7 @@ docker-compose up --build
 # Services will be available at:
 # - Frontend: http://localhost:3000
 # - Backend API: http://localhost:8000
-# - Database: MongoDB (Internal)
+# - Database: Neon DB (PostgreSQL)
 ```
 
 ### Option 2: Local Development
@@ -136,7 +136,8 @@ python -m venv venv
 pip install -e .
 
 # Create .env file
-# DATABASE_URL=mongodb://localhost:27017/marketing_db
+# DATABASE_URL=postgresql://user:password@localhost/marketing_db
+# Or use Neon DB: postgresql://user:password@xxx.neon.tech/marketing_db
 # OPENAI_API_KEY=sk-...
 # JWT_SECRET=your-secret-key
 
@@ -270,8 +271,8 @@ created_at
 
 ### Server (.env)
 ```env
-# Database
-MONGODB_URL=mongodb://mongo:27017/marketing_db
+# Database (Neon PostgreSQL)
+DATABASE_URL=postgresql://user:password@your-project.neon.tech/marketing_db
 
 # JWT
 JWT_SECRET=your-secret-key-here
@@ -350,7 +351,7 @@ pytest --cov=routes --cov=Agent test/
 ### Backend
 - **FastAPI** - Web framework
 - **SQLModel** - ORM
-- **MongoDB** - Database
+- **Neon DB (PostgreSQL)** - Database
 - **OpenAI Agents** - AI capabilities
 - **WebSockets** - Real-time updates
 - **Pytest** - Testing
@@ -376,8 +377,9 @@ docker-compose logs -f api --tail=100
 
 ### Database Issues
 ```bash
-# Connect to MongoDB:
-# MongoDB URI: mongodb://mongo:27017/marketing_db
+# Connect to Neon DB (PostgreSQL):
+# Use Neon Dashboard or psql:
+# psql postgresql://user:password@your-project.neon.tech/marketing_db
 ```
 
 ### WebSocket Not Working
