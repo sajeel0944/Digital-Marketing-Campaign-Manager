@@ -273,6 +273,7 @@ created_at
 ## 🛠️ Environment Variables
 
 ### Server (.env)
+```env
 # Database Configuration
 # Local Connection: postgresql://user:password@localhost/marketing_db
 NEON_DB_CONNECTION=postgresql://user:password@xxx.neon.tech/marketing_db
@@ -289,6 +290,7 @@ STREAM_API_KEY=your-stream-api-key
 # Development Settings
 DEBUG=false
 LOG_LEVEL=INFO
+```
 
 ### Client (.env)
 ```env
