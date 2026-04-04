@@ -136,10 +136,13 @@ python -m venv venv
 pip install -e .
 
 # Create .env file
-# DATABASE_URL=postgresql://user:password@localhost/marketing_db
+# NEON_DB_CONNECTION=postgresql://user:password@localhost/marketing_db
 # Or use Neon DB: postgresql://user:password@xxx.neon.tech/marketing_db
 # OPENAI_API_KEY=sk-...
-# JWT_SECRET=your-secret-key
+# SECRET_TOKEN_KEY=your-secret-key
+# BACK_END_SECRET_API_KEY=your-backend-secret-key
+# STREAM_API_KEY=your-stream-api-key
+# GROQ_API_KEY=your-groq-api-key
 
 # Start server
 uvicorn main:app --reload --port 8000
@@ -153,8 +156,8 @@ cd client
 npm ci
 
 # Create .env file
-# VITE_API_URL=http://localhost:8000
-
+# VITE_PUBLIC_BASE_URL=http://localhost:8000
+# VITE_PUBLIC_BACK_END_SECRET_API_KEY=your-backend-secret-key
 # Start development server
 npm run dev
 # Open: http://localhost:5173
@@ -270,25 +273,27 @@ created_at
 ## 🛠️ Environment Variables
 
 ### Server (.env)
-```env
-# Database (Neon PostgreSQL)
-DATABASE_URL=postgresql://user:password@your-project.neon.tech/marketing_db
+# Database Configuration
+# Local Connection: postgresql://user:password@localhost/marketing_db
+NEON_DB_CONNECTION=postgresql://user:password@xxx.neon.tech/marketing_db
 
-# JWT
-JWT_SECRET=your-secret-key-here
-JWT_ALGORITHM=HS256
+# AI & API Keys
+OPENAI_API_KEY=sk-...
+GROQ_API_KEY=your-groq-api-key
 
-# OpenAI (for AI Brief Builder)
-OPENAI_API_KEY=sk-your-api-key
+# Security & Authentication
+SECRET_TOKEN_KEY=your-secret-key
+BACK_END_SECRET_API_KEY=your-backend-secret-key
+STREAM_API_KEY=your-stream-api-key
 
-# Development
+# Development Settings
 DEBUG=false
 LOG_LEVEL=INFO
-```
 
 ### Client (.env)
 ```env
-VITE_API_URL=http://api:8000
+VITE_PUBLIC_BASE_URL=http://api:8000
+VITE_PUBLIC_BACK_END_SECRET_API_KEY=your-backend-secret-key
 ```
 
 ---
@@ -400,7 +405,7 @@ docker-compose logs -f api --tail=100
 
 ## 📞 Support
 
-- 📧 Email: support@marketing-dashboard.com
+- 📧 Email: ssajeelk4490@gmail.com
 - 🐛 Issues: GitHub Issues
 - 💬 Discussions: GitHub Discussions
 
