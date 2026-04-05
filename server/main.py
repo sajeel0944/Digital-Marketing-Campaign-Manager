@@ -59,7 +59,7 @@ if client_url:
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # or ["*"] to allow all origins (not recommended for production)
+    allow_origins=allowed_origins, 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

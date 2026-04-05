@@ -5,8 +5,8 @@ FROM node:22-alpine
 WORKDIR /app 
 
 # Allow passing the API URL at build time for Vite (must start with VITE_)
-ARG VITE_API_URL
-ENV VITE_API_URL=${VITE_API_URL}
+ARG VITE_PUBLIC_BASE_URL
+ENV VITE_PUBLIC_BASE_URL=${VITE_PUBLIC_BASE_URL}
 
 # Copy package.json and package-lock.json for install caching
 COPY package*.json ./ 
@@ -18,7 +18,7 @@ RUN npm ci
 # Copy all files to working directory
 COPY . . 
 
-# Build the project (build will see VITE_API_URL via ENV)
+# Build the project (build will see VITE_PUBLIC_BASE_URL via ENV)
 RUN npm run build
 
 # Application access port
