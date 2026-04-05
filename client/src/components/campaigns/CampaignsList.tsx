@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useCampaigns } from "../../hooks/useCampaigns";
 import { useAiBrief } from "../../hooks/useAiBrief";
 import { useCompanies } from "../../hooks/useCompanies";
-import { CampaignTable } from "./CampaignTable";
+import { FilteredCampaignsData } from "./FilteredCampaignsData";
 import { CampaignForm } from "./CampaignForm";
 import { AiBriefForm } from "./AiBriefForm";
 import { DeleteConfirmation } from "./DeleteConfirmation";
@@ -173,17 +173,11 @@ export const CampaignsList = ({ allowAdd }: { allowAdd: boolean }) => {
           </p>
         </div>
       ) : (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden"
-        >
-          <CampaignTable
-            campaigns={campaigns}
-            onEdit={handleEditClick}
-            onDelete={handleDeleteClick}
-          />
-        </motion.div>
+        <FilteredCampaignsData
+          campaigns={campaigns}
+          onEdit={handleEditClick}
+          onDelete={handleDeleteClick}
+        />
       )}
 
       {/* AI Brief Form Modal */}

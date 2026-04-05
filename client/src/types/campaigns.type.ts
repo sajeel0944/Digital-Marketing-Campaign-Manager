@@ -10,6 +10,7 @@ export interface Campaign {
   visual_direction: string;
   tag: string[];
   description_about_brirf: string;
+  created_at: string;
 }
 
 export interface AddCampaignSchema {
@@ -31,3 +32,6 @@ export interface CampaignApiResponse {
 
 export type CampaignFormMode = 'add' | 'edit';
 
+export type SortField = "campaign_title" | "budget" | "spend" | "created_at";
+export type SortOrder = "asc" | "desc";
+export type DateRangePreset = "7d" | "30d" | "90d" | "custom" | "all";
