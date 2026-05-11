@@ -1,4 +1,4 @@
-# 📊 Digital Marketing Campaign Manager - Real-time Dashboard
+# 📊 Digital Marketing Campaign Manager - Real-time Dashboard  
 
 A professional marketing campaign management platform that gives managers a complete overview at a glance. From budget tracking to AI-powered strategy generation - everything in one place!
 
